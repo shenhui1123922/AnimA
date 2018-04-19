@@ -16,8 +16,6 @@ body {
 
 <script src="../../jquery-3.3.1.js"></script>
 <script src="../../handlebars-v4.0.11.js"></script>
-
-
 <script type="text/javascript">
 
 	function sumbit(id) {

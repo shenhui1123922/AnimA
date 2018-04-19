@@ -24,8 +24,8 @@ import com.google.gson.JsonParser;
 /**
  * Servlet implementation class CheckPerformanceServlet
  */
-@WebServlet("/CheckPerformanceServlet")
-public class CheckPerformanceServlet extends HttpServlet {
+@WebServlet("/CheckPerformance")
+public class CheckPerformance extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PerformanceService performanceService = new PerformanceService();
 	private Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();//设定时间格式
@@ -34,7 +34,7 @@ public class CheckPerformanceServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CheckPerformanceServlet() {
+	public CheckPerformance() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -63,20 +63,16 @@ public class CheckPerformanceServlet extends HttpServlet {
 		//解析获得的JD，
 		
 		String ID = jsonObject.get("ID").getAsString(); // ID用于存储从界面输入的ID字符串
-		String passWord = jsonObject.get("passWord").getAsString(); // passWord用于存储从界面输入的密码字符串
+		String passWord = jsonObject.get("passWord").getAsString();
 		String oneDay = jsonObject.get("oneday").getAsString(); // oneday用于存储从界面输入的日期字符串
-		
 		java.sql.Date date = java.sql.Date.valueOf(oneDay); // 初始化一个SQL包下的Date对象用来存储Date格式的payDay
-
 		Employee employee = new Employee(); // 初始化employee对象
 		employee.setId(Long.parseLong(ID)); // 将ID中存储的字符串转化为employee对象中的ID对应的Long类型并赋值
-		employee.setPassword(passWord); // 将passWord中存储的字符串赋给employee对象中的password
+		employee.setPassword(passWord);
 		List<Performance> performances = performanceService.check(employee, date);
 		System.out.println(performances);
 		String s = gson.toJson(performances);
 		System.out.println(s);
 		response.getWriter().write(s);
-
 	}
-
 }

@@ -7,12 +7,7 @@
 <title>Main</title>
 </head>
 <body>
-	<div>  
-        欢迎<h3><%=session.getAttribute("loginUsername") %></h3>管理员同学
-    </div>  
-	<br>
 	<%--各种操作 --%>
-
 	<a href="function/query/query.jsp">查询</a>
 	<a href="function/register/register.jsp">注册</a>
 	<a href="function/update/update.jsp">维护</a>

@@ -15,8 +15,8 @@ import com.YTU.AnimA.service.EmployeeService;
 /**
  * Servlet implementation class CheckEmployeeServlet
  */
-@WebServlet("/CheckEmployeeServlet")
-public class CheckEmployeeServlet extends HttpServlet {
+@WebServlet("/CheckEmployee")
+public class CheckEmployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	// 由于是对Employee对象的操作，所以要初始化一个EmployeeService类
 	private EmployeeService employeeService = new EmployeeService();
@@ -24,7 +24,7 @@ public class CheckEmployeeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CheckEmployeeServlet() {
+	public CheckEmployee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
